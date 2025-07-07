@@ -1,0 +1,12 @@
+#quantity-sold-chart {
+  width: 100% !important;
+  height: 100% !important;
+}
+.analysis-details_chart_full{
+  height: 550px;
+  position: relative;
+    background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jewelry Shop Dashboard</title>
+  <link rel="stylesheet" href="./CSS/styles.css">
+  <link rel="stylesheet" href="./CSS/empAnalysis.css">
+  <link rel="stylesheet" href="./CSS/Order.css">
+  <link rel="stylesheet" href="./CSS/customer.css">
+  <link rel="stylesheet" href="./CSS/product.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <h1>Jewelry Shop Dashboard</h1>
+      <div class="user-info">
+        <span id="current-user"></span>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </header>
+    <nav>
+      <button class="nav-btn active" data-panel="inventory">Inventory</button>
+      <button class="nav-btn" data-panel="employees">Employees</button>
+      <button class="nav-btn" data-panel="orders">Orders</button>
+      <button class="nav-btn" data-panel="customer">Customer</button>
+    </nav>
+    
+    <main>
+      <!-- Inventory Management start from here --> 
+      <section id="inventory" class="panel active">
+        <div class="panel-header">
+          <h2>Inventory Management</h2>
+          <div class="Order_add-container">
+            <button id="supplierWindow-btn" class="top-btn">supplier</button>
+            <button id="show-stats-btn_inventory" class="top-btn">show stats</button>
+            <button id="add-item-btn" class="top-btn">Add New Item</button>
+            <button id="order-btn" class="top-btn">Order</button>
+          </div>
+        </div>
+        <!-- Product statistics display -->
+        <div class="product-stats">
+          <div class="chart-container">
+            <canvas id="product-chart"></canvas>
+          </div>
+        </div>
+        <div class="product_work">
+          <div class="filter-section">
+            <div class="filter-options">
+              <h4>Product Types</h4>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="product-filter" value="all" checked> All Types</label>
+                <label><input type="checkbox" name="product-filter" value="ring"> Ring</label>
+                <label><input type="checkbox" name="product-filter" value="necklace"> Necklace</label>
+                <label><input type="checkbox" name="product-filter" value="bracelet"> Bracelet</label>
+                <label><input type="checkbox" name="product-filter" value="earring"> Earrings</label>
+                <label><input type="checkbox" name="product-filter" value="pendant"> Pendant</label>
+                <label><input type="checkbox" name="product-filter" value="chain"> Chain</label>
+                <label><input type="checkbox" name="product-filter" value="anklet"> Anklet</label>
+              </div>
+            </div>
+            <div class="price-filter">
+              <label for="price-range">Price Range:</label>
+              <input type="range" id="price-range" min="0" max="5000" step="100" value="5000">
+              <span id="price-display">$5000</span>
+            </div>
+        </div>
+        <div id="inventory-container" class="card-container">
+        </div>
+      </div>
+        
+        
+      </section>
+      <!-- Inventory Management end from here -->
+      <!-- Employee Management start from here -->
+      <section id="employees" class="panel">
+        <div class="panel-header">
+          <h2>Employee Management</h2>
+          <div class="employee-actions">
+            <button id="add-employee-btn" class="top-btn">Add New Employee</button>
+            <button id="show-stats-btn" class="top-btn">View Statistics</button>
+          </div>
+        </div>
+        <!-- Add employee statistics display -->
+        <div class="employee-stats">
+          <div class="chart-container">
+            <canvas id="employee-chart"></canvas>
+          </div>
+        </div>
+        <div class="employees-section">  <!-- Add this wrapper div -->
+          <div id="employees-container" class="card-container"></div>
+          <!-- Pagination will be inserted here by JavaScript -->
+        </div>
+      </section>
+      <!-- Employee Management end from here -->
+       <section id = "orders" class="panel">
+        <div class="panel-header">
+          <h2>Orders Management</h2>
+          <div class="Order-type_show">
+            <button id="show-stats-btn_orders" class="top-btn">Order analysis</button>
+            <label for="order_type"></label>
+            <select id="order_type" required>
+              <option value="customer">customer</option>
+              <option value="Branch">Branch</option>
+            </select>
+          </div>
+        </div>
+        <div class="order-stats">
+          <div class="chart-container">
+            <canvas id="order-chart"></canvas>
+          </div>
+        </div>
+        <div id="orders-container" class="table-container">
+          <table id="orders-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Created At</th>
+                <th>Order Price</th>
+                <th>Delivery Date</th>
+                <th>Order Status</th>
+                <th>Action</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="orders-tbody">
+              <!-- Orders will be inserted here by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+       </section>
+       <section id = "customer" class="panel">
+        <h2>Customer Management</h2>
+        <div class="customer-header">
+          <button id="show-stats-btn_customer" class="top-btn">Customer analysis</button>
+        </div>
+          <div class="chart-container">
+            <canvas id="customer-chart"></canvas>
+          </div>
+          <div id="customers-container" class="card-container">
+          </div>
+       </section>
+    </main>
+  </div>
+  <!-- JS to move between pages -->
+  <script src="./JS/script.js"></script>
+  <!-- employee JS -->
+   <script src="./JS/employee.js"></script>
+   <!-- product JS -->
+   <script src="./JS/product.js"></script>
+   <!-- order JS -->
+   <script src="./JS/order.js"></script>
+   <!-- customer JS -->
+   <script src="./JS/customer.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

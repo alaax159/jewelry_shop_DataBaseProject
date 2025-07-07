@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jewelry Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CustomerDashboard/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>My Jewelry Collection</h1>
+      <p>Your premium shopping experience</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Total Money Spent -->
+            <div class="card total-spent fade-in">
+                <div class="card-title">💎 Total Investment</div>
+                <div class="total-amount">$24,580</div>
+                <div class="amount-subtitle">Lifetime purchases across 47 items</div>
+            </div>
+
+            <!-- Loyalty Status -->
+            <div class="card loyalty-card fade-in">
+                <div class="card-title">👑 VIP Status</div>
+                <div class="loyalty-tier">Platinum Member</div>
+                <div class="loyalty-points">8,420 <span style="font-size: 1rem; color: #888;">points</span></div>
+                <div class="loyalty-progress">
+                    <div class="loyalty-progress-bar" style="width: 84%;"></div>
+                </div>
+                <div class="amount-subtitle">1,580 points to Diamond tier</div>
+            </div>
+
+            <!-- Products Purchased -->
+            <div class="card fade-in">
+                <div class="card-title">💍 Recent Purchases</div>
+                <div class="products-grid">
+                    <div class="product-item">
+                        <div class="product-image">💎</div>
+                        <div class="product-name">Diamond Solitaire Ring</div>
+                        <div class="product-price">$4,200</div>
+                        <div class="product-date">March 15, 2025</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">📿</div>
+                        <div class="product-name">Pearl Necklace</div>
+                        <div class="product-price">$890</div>
+                        <div class="product-date">February 28, 2025</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">⌚</div>
+                        <div class="product-name">Gold Watch</div>
+                        <div class="product-price">$2,100</div>
+                        <div class="product-date">February 12, 2025</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-image">💫</div>
+                        <div class="product-name">Star Sapphire Earrings</div>
+                        <div class="product-price">$1,650</div>
+                        <div class="product-date">January 20, 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order History -->
+            <div class="card fade-in">
+                <div class="card-title">📦 Order History</div>
+                <div class="order-timeline">
+                    <div class="order-item">
+                        <div class="order-status status-delivered">Delivered</div>
+                        <div class="order-details">
+                            <div class="order-id">Order #JW-2025-0034</div>
+                            <div class="order-date">Delivered March 17, 2025</div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-status status-processing">Processing</div>
+                        <div class="order-details">
+                            <div class="order-id">Order #JW-2025-0035</div>
+                            <div class="order-date">Ordered March 20, 2025</div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-status status-pending">Pending</div>
+                        <div class="order-details">
+                            <div class="order-id">Order #JW-2025-0036</div>
+                            <div class="order-date">Ordered March 22, 2025</div>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-status status-delivered">Delivered</div>
+                        <div class="order-details">
+                            <div class="order-id">Order #JW-2025-0033</div>
+                            <div class="order-date">Delivered March 10, 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spending Overview -->
+            <div class="card fade-in">
+                <div class="card-title">📊 Monthly Spending</div>
+                <div class="chart-container">
+                    <div class="chart-bars">
+                        <div class="chart-bar" style="height: 40%;" data-amount="$1,200"></div>
+                        <div class="chart-bar" style="height: 60%;" data-amount="$1,800"></div>
+                        <div class="chart-bar" style="height: 80%;" data-amount="$2,400"></div>
+                        <div class="chart-bar" style="height: 100%;" data-amount="$3,000"></div>
+                        <div class="chart-bar" style="height: 70%;" data-amount="$2,100"></div>
+                        <div class="chart-bar" style="height: 90%;" data-amount="$2,700"></div>
+                    </div>
+                    <div class="chart-labels">
+                        <span>Oct</span>
+                        <span>Nov</span>
+                        <span>Dec</span>
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="card recommendations fade-in">
+                <div class="card-title">✨ Curated for You</div>
+                <div class="recommendations-carousel">
+                    <div class="recommendation-item">
+                        <div class="recommendation-image">💍</div>
+                        <div class="recommendation-name">Emerald Cut Diamond Ring</div>
+                        <div class="recommendation-price">$5,200</div>
+                    </div>
+                    <div class="recommendation-item">
+                        <div class="recommendation-image">📿</div>
+                        <div class="recommendation-name">Vintage Pearl Bracelet</div>
+                        <div class="recommendation-price">$1,450</div>
+                    </div>
+                    <div class="recommendation-item">
+                        <div class="recommendation-image">💫</div>
+                        <div class="recommendation-name">Sapphire Tennis Necklace</div>
+                        <div class="recommendation-price">$3,800</div>
+                    </div>
+                    <div class="recommendation-item">
+                        <div class="recommendation-image">👑</div>
+                        <div class="recommendation-name">Royal Tiara</div>
+                        <div class="recommendation-price">$12,500</div>
+                    </div>
+                    <div class="recommendation-item">
+                        <div class="recommendation-image">⭐</div>
+                        <div class="recommendation-name">Star Ruby Brooch</div>
+                        <div class="recommendation-price">$2,200</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+  </div>
+
+  <script src="../CustomerDashboard/script.js"></script>
+</body>
+</html>

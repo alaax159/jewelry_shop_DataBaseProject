@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="contener" style="background-image: url('images/bg-registration-form-1.jpg');">
+        <div class="overlay">
+            <p>Add the overlay content here</p>
+        </div>
+        <div class="inner">
+            <div class="image-holder">
+                <img src="./img/download.jpg" alt="">
+            </div>
+            <form id="customerForm" action="" class="form">
+                <div class="form-header">
+                        <h3>Create Account</h3>
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name" class="form-control" id="first_name" required>
+                        <input type="text" placeholder="Last Name" class="form-control" id="last_name" required>
+                    </div>
+                    <div class="form-data">
+                        <input type="text" placeholder="Username" class="form-control" id="user_name" required>
+                    </div>
+                    <div class="form-data">
+                        <input type="email" placeholder="Email Address" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-data">
+                        <select id="gender" class="form-control" required>
+                            <option value="" disabled selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-data">
+                        <input type="password" placeholder="Password" class="form-control" id="acc_password" required>
+                    </div>
+                    <div class="form-data">
+                        <input type="password" placeholder="Confirm Password" class="form-control" id="Confirm_Password" required>
+                    </div>
+                    <div class="form-data">
+                        <input type="date" placeholder="Date of Birth" class="form-control" id="date_of_birth" required>
+                    </div>
+                    <div class="form-data2">
+                        <a href="../login/login.html" target="_blank">
+                            <label for="">Login</label>	
+                        </a>
+                        <label for="">already have an account?</label>
+                    </div>
+                </div>
+                <div class="form-header">
+                    <button type="submit" class="btn liquid">Register 
+                    </button>
+                    <div id="message" style="color: green; margin-top: 10px;"></div>
+                    <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./createAccount.js"></script>
+</body>
+</html>

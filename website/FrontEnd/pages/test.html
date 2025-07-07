@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./test.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contener">
+        <div class="inner">
+            <form id="customerForm" action="" class="form">
+                <div class="form-header">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" class="form-control" id="email" >
+                    </div>
+                    <div class="form-group">
+                        <input type="password" style="display:none;" placeholder="New Password" class="form-control new-pass" id="acc_password" >
+                    </div>
+                </div>
+                <div class="form-header">
+                    <button type="submit" class="btn liquid delete-account">Delete</button>
+                    <button type="submit" class="btn liquid change-pass">Change Password</button>
+                    <div id="message" style="color: green; margin-top: 10px;"></div>
+                    <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="test.js"></script>
+</body>
+</html>

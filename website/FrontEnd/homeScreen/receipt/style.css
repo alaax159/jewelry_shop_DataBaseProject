@@ -1,0 +1,341 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .receipt-container {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f6f3 0%, #e8e4de 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c2c2c;
+        }
+
+        .receipt-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .receipt-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .receipt-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+        }
+
+        .shop-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .shop-tagline {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .receipt-info {
+            padding: 25px 30px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .receipt-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item-receipt {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        .items-section {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+        }
+
+        .item {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #d4af37, #f4d03f);
+        }
+
+        .item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            flex: 1;
+        }
+
+        .item-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-left: 15px;
+        }
+
+        .item-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .item-detail {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .detail-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        .quantity-badge {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .star {
+            font-size: 16px;
+            color: #ddd;
+            transition: color 0.2s ease;
+        }
+
+        .star.filled {
+            color: #d4af37;
+        }
+
+        .star.half {
+            background: linear-gradient(90deg, #d4af37 50%, #ddd 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .total-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .subtotal {
+            opacity: 0.8;
+        }
+
+        .tax {
+            opacity: 0.8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .final-total {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            padding-top: 15px;
+            border-top: 2px solid #d4af37;
+        }
+
+        .total-label {
+            color: #d4af37;
+        }
+
+        .thank-you {
+            background: #fafafa;
+            padding: 25px 30px;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .receipt-container {
+                padding: 10px;
+            }
+
+            .receipt-header {
+                padding: 30px 20px;
+            }
+
+            .shop-name {
+                font-size: 2rem;
+            }
+
+            .receipt-details {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .items-section {
+                padding: 20px;
+            }
+
+            .item {
+                padding: 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .item-price {
+                margin-left: 0;
+            }
+
+            .item-details {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .total-section {
+                padding: 25px 20px;
+            }
+
+            .final-total {
+                font-size: 1.8rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .receipt-container{
+            margin-top: 100px;
+        }
+.rating .star {
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+  }
+
+  .rating .star.selected,
+  .rating .star:hover,
+  .rating .star:hover ~ .star {
+    color: #ffc107;
+  }
+
+  .rating .star:hover ~ .star {
+    color: #ccc;
+  }

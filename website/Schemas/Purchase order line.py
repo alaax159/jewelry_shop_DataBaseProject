@@ -1,0 +1,17 @@
+from typing import Optional
+
+from pydantic import BaseModel
+
+
+class purchase_order_line(BaseModel):
+    Purchase_Order: int
+    Product_id: int
+    quantity: Optional[int] = None
+    unit_price: Optional[float] = None
+    subtotal: Optional[float] = None
+
+    def calculate_subtotal(self):
+        if self.quantity is not None and self.unit_price is not None:
+            self.subtotal = self.quantity * self.unit_price
+        return self.subtotal
+

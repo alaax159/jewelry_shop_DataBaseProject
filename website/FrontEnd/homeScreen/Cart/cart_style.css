@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.user-login a{
+  padding: 5px 8px;
+}
+
+
+.cart-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 70%;
+    margin: 50px 0;
+}
+
+.cart-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-family: Poppins, sans-serif;
+}
+
+.cart-item-details span {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+}
+
+.remove-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #ff3333;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .cart-header, .cart-item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "product quantity"
+            "product subtotal"
+            "actions actions";
+        text-align: left;
+        padding: 15px 0;
+    }
+
+    .cart-header div:nth-child(3),
+    .cart-item div:nth-child(3) {
+        display: none;
+    }
+
+    .cart-item-details {
+        grid-area: product;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quantity-input {
+        grid-area: quantity;
+        justify-self: start;
+    }
+
+    .cart-item div:nth-child(4) {
+        grid-area: subtotal;
+    }
+
+    .remove-btn {
+        grid-area: actions;
+        justify-self: center;
+        margin-top: 10px;
+    }
+}
+
+.body-card {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.body-card{
+    margin-top: 50px;
+}
+
+.cb-mg{
+    margin-left: 10px;
+}

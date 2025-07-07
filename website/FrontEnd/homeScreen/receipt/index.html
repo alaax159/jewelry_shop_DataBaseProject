@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Shop Receipt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f6f3 0%, #e8e4de 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c2c2c;
+        }
+
+        .receipt-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .receipt-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .receipt-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+        }
+
+        .shop-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .shop-tagline {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .receipt-info {
+            padding: 25px 30px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .receipt-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        .items-section {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+        }
+
+        .item {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #d4af37, #f4d03f);
+        }
+
+        .item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            flex: 1;
+        }
+
+        .item-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-left: 15px;
+        }
+
+        .item-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .item-detail {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .detail-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        .quantity-badge {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .star {
+            font-size: 16px;
+            color: #ddd;
+            transition: color 0.2s ease;
+        }
+
+        .star.filled {
+            color: #d4af37;
+        }
+
+        .star.half {
+            background: linear-gradient(90deg, #d4af37 50%, #ddd 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .total-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .subtotal {
+            opacity: 0.8;
+        }
+
+        .tax {
+            opacity: 0.8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .final-total {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            padding-top: 15px;
+            border-top: 2px solid #d4af37;
+        }
+
+        .total-label {
+            color: #d4af37;
+        }
+
+        .thank-you {
+            background: #fafafa;
+            padding: 25px 30px;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .receipt-header {
+                padding: 30px 20px;
+            }
+
+            .shop-name {
+                font-size: 2rem;
+            }
+
+            .receipt-details {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .items-section {
+                padding: 20px;
+            }
+
+            .item {
+                padding: 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .item-price {
+                margin-left: 0;
+            }
+
+            .item-details {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .total-section {
+                padding: 25px 20px;
+            }
+
+            .final-total {
+                font-size: 1.8rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt-container fade-in">
+        <div class="receipt-header">
+            <h1 class="shop-name">Lumière Jewels</h1>
+            <p class="shop-tagline">Timeless Elegance & Luxury</p>
+        </div>
+
+        <div class="receipt-info">
+            <div class="receipt-details">
+                <div class="detail-item">
+                    <span class="detail-label">Receipt #:</span>
+                    <span class="detail-value" id="receipt-number">LJ-2024-001247</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Date:</span>
+                    <span class="detail-value" id="receipt-date"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Customer:</span>
+                    <span class="detail-value">Sarah Thompson</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Payment:</span>
+                    <span class="detail-value">****-1234</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="items-section">
+            <h2 class="section-title">Purchased Items</h2>
+            <div id="items-container"></div>
+        </div>
+
+        <div class="total-section">
+            <div class="total-row subtotal">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="total-row tax">
+                <span>Tax (8.5%):</span>
+                <span id="tax">$0.00</span>
+            </div>
+            <div class="total-row final-total">
+                <span class="total-label">Total:</span>
+                <span id="final-total">$0.00</span>
+            </div>
+        </div>
+
+        <div class="thank-you">
+            <p>Thank you for choosing ALAMEERA. Your satisfaction is our commitment to excellence.</p>
+        </div>
+    </div>
+
+    <script>
+        // Sample jewelry products data
+        const jewelryItems = [
+            {
+                name: "Diamond Solitaire Ring",
+                quantity: 1,
+                pricePerUnit: 2500.00,
+                rating: 4.5
+            },
+            {
+                name: "Pearl Drop Earrings",
+                quantity: 1,
+                pricePerUnit: 450.00,
+                rating: 5.0
+            },
+            {
+                name: "Gold Tennis Bracelet",
+                quantity: 2,
+                pricePerUnit: 850.00,
+                rating: 4.0
+            },
+            {
+                name: "Sapphire Pendant Necklace",
+                quantity: 1,
+                pricePerUnit: 1200.00,
+                rating: 4.5
+            },
+            {
+                name: "Emerald Stud Earrings",
+                quantity: 1,
+                pricePerUnit: 750.00,
+                rating: 3.5
+            }
+        ];
+
+        function generateStars(rating) {
+            let starsHTML = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                starsHTML += '<span class="star filled">★</span>';
+            }
+            
+            if (hasHalfStar) {
+                starsHTML += '<span class="star half">★</span>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                starsHTML += '<span class="star">★</span>';
+            }
+            
+            return starsHTML;
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+
+        function generateReceipt() {
+            const itemsContainer = document.getElementById('items-container');
+            let subtotal = 0;
+
+            // Set current date
+            const currentDate = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('receipt-date').textContent = currentDate;
+
+            // Generate items
+            jewelryItems.forEach((item, index) => {
+                const itemTotal = item.quantity * item.pricePerUnit;
+                subtotal += itemTotal;
+
+                const itemHTML = `
+                    <div class="item" style="animation-delay: ${index * 0.1}s">
+                        <div class="item-header">
+                            <h3 class="item-name">${item.name}</h3>
+                            <div class="item-price">${formatCurrency(itemTotal)}</div>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-detail">
+                                <svg class="detail-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"/>
+                                </svg>
+                                <span class="quantity-badge">Qty: ${item.quantity}</span>
+                            </div>
+                            <div class="item-detail">
+                                <svg class="detail-icon" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>${formatCurrency(item.pricePerUnit)} each</span>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            ${generateStars(item.rating)}
+                            <span style="margin-left: 8px; color: #666; font-size: 0.9rem;">(${item.rating})</span>
+                        </div>
+                    </div>
+                `;
+                itemsContainer.innerHTML += itemHTML;
+            });
+
+            // Calculate totals
+            const tax = subtotal * 0.085; // 8.5% tax
+            const finalTotal = subtotal + tax;
+
+            // Update totals
+            document.getElementById('subtotal').textContent = formatCurrency(subtotal);
+            document.getElementById('tax').textContent = formatCurrency(tax);
+            document.getElementById('final-total').textContent = formatCurrency(finalTotal);
+        }
+
+        // Initialize receipt when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            generateReceipt();
+            
+            // Add stagger animation to items
+            const items = document.querySelectorAll('.item');
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.classList.add('fade-in');
+            });
+        });
+    </script>
+</body>
+</html>
