@@ -112,12 +112,6 @@ Open your browser and navigate to: `http://localhost:8000`
 
 ---
 
-## 📄 License
-
-This project is available under the MIT License. See the LICENSE file for more details.
-
----
-
 <div align="center">
   <strong>Built with ❤️ by the Jewelry Shop Team</strong>
 </div>
